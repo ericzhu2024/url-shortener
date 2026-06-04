@@ -13,17 +13,16 @@ import (
 	"url-shortener/db"
 )
 
-// TestMain 在所有测试运行前执行，负责初始化
+
 func TestMain(m *testing.M) {
-	// 设置测试环境变量
+	
 	os.Setenv("DB_DSN", "host=localhost user=admin password=password dbname=urlshortener port=5432 sslmode=disable")
 	os.Setenv("REDIS_ADDR", "localhost:6379")
 
-	// 初始化数据库和 Redis
+
 	db.Init()
 	cache.Init()
 
-	// 运行所有测试
 	os.Exit(m.Run())
 }
 
