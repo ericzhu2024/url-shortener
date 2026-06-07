@@ -1,4 +1,4 @@
-const BASE = 'http://localhost:8080'
+const BASE = 'http://3.134.106.201:8080'
 
 export async function createLink(original: string) {
   const res = await fetch(`${BASE}/api/links`, {

@@ -1,4 +1,4 @@
-# 第一阶段：编译
+# Stage 1: Build
 FROM node:20-alpine AS builder
 
 WORKDIR /app
@@ -9,7 +9,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# 第二阶段：运行
+# Stage 2: Run
 FROM nginx:alpine
 
 COPY --from=builder /app/dist /usr/share/nginx/html

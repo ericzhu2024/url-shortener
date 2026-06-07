@@ -1,4 +1,4 @@
-# 第一阶段：编译
+# Stage 1: Build
 FROM golang:1.26-alpine AS builder
 
 WORKDIR /app
@@ -9,7 +9,7 @@ RUN go mod download
 COPY . .
 RUN go build -o main .
 
-# 第二阶段：运行
+# Stage 2: Run
 FROM alpine:latest
 
 WORKDIR /app

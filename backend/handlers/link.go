@@ -50,7 +50,7 @@ func CreateLink(c *gin.Context) {
 		cache.Refresh(code, 24*time.Hour)
 		c.JSON(http.StatusOK, gin.H{
 			"code":      code,
-			"short_url": "http://localhost:8080/r/" + code,
+			"short_url": "http://3.134.106.201:8080/r/" + code,
 			"original":  input.Original,
 		})
 		return
@@ -63,7 +63,7 @@ func CreateLink(c *gin.Context) {
 		cache.SetOriginal(existing.Original, existing.Code, 24*time.Hour)
 		c.JSON(http.StatusOK, gin.H{
 			"code":      existing.Code,
-			"short_url": "http://localhost:8080/r/" + existing.Code,
+			"short_url": "http://3.134.106.201:8080/r/" + existing.Code,
 			"original":  existing.Original,
 		})
 		return
@@ -89,7 +89,7 @@ func CreateLink(c *gin.Context) {
 
 	c.JSON(http.StatusCreated, gin.H{
 		"code":      code,
-		"short_url": "http://localhost:8080/r/" + code,
+		"short_url": "http://3.134.106.201:8080/r/" + code,
 		"original":  input.Original,
 	})
 }
